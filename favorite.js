@@ -92,23 +92,6 @@ function removeFromFavorite(id) {
 
 
 
-// 若movies沒有東西，或movies.length=0時return
-// 宣告一個movieIndex變數，裡面放的是即將被刪除的movie
-// 怎麼知道誰即將被刪除?
-// 使用findIndex找出80部movies中被點擊movie的id
-// 如何知道被點擊電影的id?
-// 在dataPanel點擊事件裡，使用event.target.dataset.id的方式指定removeFromFavorite函式的參數
-// 所以當點擊事件發生時，就可以立馬索引出事件發生的movie他陣列中的index，然後再把這個index由movieIndex這個變數接收
-// 所以movieIndex就會等於事件發生時該movie在陣列中的索引值。
-// 利用這個索引值來操作==>使用splice函式來完成刪除一個該值的操作
-// splice的功能是(修改的初始值, 刪除的數量)，所以當修改的初始值是movieIndex，刪除的數量是1時，event.target就會直接被刪除掉
-// 然後使用loaclStorage.setItem，把修改完的陣列塞入，這邊記得value要把原本是JS的資料轉變成JSON字串
-// 這邊的movies，透過陣列的刪減搭配事件監聽器，形成一個動態刪除的效果，
-// 最後要渲染到網頁上使用renderMovieList(movies)所以他們的共同參數是movies，而且都有連接到同一個事件監聽氣
-// 所以可以達到同步刪減的效果
-
-
-
 dataPanel.addEventListener('click', function onPanelClicked(event) {
     if (event.target.matches('.btn-show-movie')) {
         // console.log(event.target.dataset)
@@ -119,11 +102,3 @@ dataPanel.addEventListener('click', function onPanelClicked(event) {
 })
 
 renderMovieList(movies)
-
-//如何把該陣列移出?F
-
-
-
-//移除事件，當click下x按鍵時
-//把loaclStorag.getItem陣列中的event.target.id，remove出陣列裡
-//宣告一個動態的陣列變數，一但有id被remove出就重新渲染頁面
